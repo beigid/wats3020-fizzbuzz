@@ -1,10 +1,7 @@
-/* Code for WATS 3020 FizzBuzz Assignment */
-
 let isInteger,
     maxNumber,
     fbResults,
     fbText;
-
 
 // TODO: Initialize a variable `isInteger` to use as a control value for the
 // `while` loop. Set the initial value to `false`.
