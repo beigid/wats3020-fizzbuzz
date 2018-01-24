@@ -1,34 +1,44 @@
-let isInteger,
-    maxNumber,
-    fbResults,
-    fbText;
 
-// TODO: Initialize a variable `isInteger` to use as a control value for the
-// `while` loop. Set the initial value to `false`.
+// Declarations and their values
+let isInteger = false; //Control value for the while loop set to false
+let maxNumber;
+let fbResults = []; //Empty array used for later data to be placed into.
+let fbText = (""); //Empty string used for later data to be placed into.
 
-// TODO: Create a `while` loop so user will be prompted to enter a number until
-// they enter a good number. This loop should be controlled by a conditional
-// expression that looks at the value of `isSafeInteger`. When `isSafeInteger`
-// becomes `true`, the `while` loop should stop looping.
+while (!isInteger) {
+  
+maxNumber = prompt("Enter a number (A n integer over zero):", 20);
+ 
+// Turns a number from maxNumber prompt into an integer. Promps create strings. 
+maxNumber = parseInt(maxNumber); 
+  
+// Conditional used to see if maxNumber is an integer that is suitable and greater than zero.
+// The Number.isSafeInteger() method determines whether the provided value is a number that is a safe integer.
+if (Number.isSafeInteger(maxNumber) && maxNumber > 0 ) {
+     isInteger = true;
+  } 
+}
 
-// TODO: Inside `while` loop prompt the user for the `maxNumber` value.
+// For loop created to execute maxNumber of times
+for (let i = 1; i <= maxNumber; i++) {
 
-// TODO: Inside the `while` loop, use a conditional to verify if the `maxNumber`
-// is a suitable integer. (It should be an integer greater than zero.)
+// % 15 used, because less that 20 (make number) and 3 and 5 divided by 15 have no remainder.  
+  if (i % 15 === 0) {
+      fbResults.push("FizzBuzz");  
 
-// TODO: If the value of `maxNumber` is suitable, then change the value of
-// `isInteger` so the `while` loop stops looping.
+// Same as above, % 3 and % 5 used because anything divisible by 3 or 5 has no remainder
+    } else if (i % 3 === 0) {
+      fbResults.push("Fizz");
+    } else if (i % 5 === 0) {
+     fbResults.push("Buzz"); 
+    } else {
+      fbResults.push(i); 
+  }
+}
 
-// TODO: Initialize the `fbResults` variable to an empty Array
-
-// TODO: Create a `for` loop that will execute the `maxNumber` of times.
-
-// TODO: Create logic inside the `for` loop to calculate FizzBuzz.  This will
-// require the use of several conditional statements that use the `%` operator.
-// Store the results of this logic in an array called `fbResults`.
-
-// TODO: In preparation for creating the output text for your FizzBuzz results,
-// initialize the `fbText` variable to an empty string.
+for (let result of fbResults) {
+  fbText = fbText + result + "\n";
+}
 
 // TODO: Use a `for ... of` loop to concatenate the values from `fbResults`
 // into the variable `fbText`.
